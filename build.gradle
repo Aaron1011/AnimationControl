@@ -87,7 +87,9 @@ jar {
     manifest {
         attributes(
             'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
-            'TweakOrder': 0
+            'TweakOrder': 0,
+            'MixinConfigs': 'mixins.animationcontrol.json',
+            'ForceLoadAsMod': true
         )
     }
 }

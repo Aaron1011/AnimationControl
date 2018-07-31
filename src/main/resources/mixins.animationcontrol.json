@@ -1,11 +1,13 @@
 {
   "required": true,
+  "minVersion": "0.7.0",
   "package": "pw.aaron1011.animationcontrol.mixin",
   "refmap": "mixins.animationcontrol.refmap.json",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "MixinForgeHooksClient"
+    "MixinForgeHooksClient",
+    "MixinItemRenderer"
   ],
   "injectors": {
     "defaultRequire": 1

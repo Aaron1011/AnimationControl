@@ -13,6 +13,6 @@ public abstract class MixinForgeHooksClient {
 
     @Redirect(method = "shouldCauseReequipAnimation", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/Item;shouldCauseReequipAnimation(Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;Z)Z"), remap = false)
     private static boolean onShouldCauseReequipAnimation(Item this$0, ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
-        return ItemHooks.shouldCauseRequipAnimation(this$0, oldStack, newStack, slotChanged);
+        return ItemHooks.onShouldCauseRequipAnimation(this$0, oldStack, newStack, slotChanged);
     }
 }
