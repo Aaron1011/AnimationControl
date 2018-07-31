@@ -1,6 +1,7 @@
 package pw.aaron1011.animationcontrol;
 
 import net.minecraftforge.fml.common.Mod;
+import pw.aaron1011.animationcontrol.requip.ReEquipManager;
 
 @Mod(
         modid = AnimationControl.MOD_ID,
@@ -16,4 +17,8 @@ public class AnimationControl {
     /** This is the instance of your mod as created by Forge. It will never be null. */
     @Mod.Instance(MOD_ID)
     public static AnimationControl INSTANCE;
+
+    public final ReEquipManager reEquipManager = new ReEquipManager();
+
+    public static String ANIMATION_CONTROL_TAG = "AnimationControl";
 }

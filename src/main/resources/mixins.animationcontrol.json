@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "pw.aaron1011.animationcontrol.mixin",
+  "refmap": "mixins.animationcontrol.refmap.json",
+  "target": "@env(DEFAULT)",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinForgeHooksClient"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

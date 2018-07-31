@@ -5,13 +5,25 @@ buildscript {
             name = "forge"
             url = "https://files.minecraftforge.net/maven"
         }
+        maven {
+            name = "sponge"
+            url = "https://repo.spongepowered.org/maven"
+        }
     }
     dependencies {
         classpath "net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT"
+        classpath 'org.spongepowered:mixingradle:0.5-SNAPSHOT'
     }
 }
 
+plugins {
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
+}
+
 apply plugin: "net.minecraftforge.gradle.forge"
+apply plugin: 'org.spongepowered.mixin'
+
+
 
 version = modVersion
 group = modGroup
@@ -32,9 +44,16 @@ minecraft {
 
 repositories {
     mavenCentral()
+    maven {
+        name = "sponge"
+        url = "https://repo.spongepowered.org/maven"
+    }
 }
 
 dependencies {
+    shadow('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
+        exclude module: 'launchwrapper'
+    }
 }
 
 processResources {
@@ -54,4 +73,12 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude "mcmod.info"
     }
+}
+
+shadowJar {
+    classifier = null
+}
+
+mixin {
+    add sourceSets.main, "mixins.animationcontrol.refmap.json"
 }
