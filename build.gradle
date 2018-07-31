@@ -82,3 +82,12 @@ shadowJar {
 mixin {
     add sourceSets.main, "mixins.animationcontrol.refmap.json"
 }
+
+jar {
+    manifest {
+        attributes(
+            'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+            'TweakOrder': 0
+        )
+    }
+}
